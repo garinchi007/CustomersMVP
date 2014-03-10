@@ -26,6 +26,7 @@ namespace WindowsFormsApplication1
         {
             if (fileName == null) fileName = "";
             FileName = fileName;
+            if (!File.Exists(fileName) && fileName != "") File.AppendAllText(FileName, DateTime.Now + ": Log file was created." + Environment.NewLine, Encoding.GetEncoding("Windows-1251"));
         }
 
         public override void LogMessage(string Message)
